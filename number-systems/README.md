@@ -17,10 +17,10 @@ Which is larger: 00100 or 01011?
 Answer: 01011 because 01011 = 11 whereas 00100 = 4
 
 What is 10101 + 01010?
-Answer: 32 because 10101 = 21 and 01010 = 10
+Answer: ~~32 because 10101 = 21 and 01010 = 10~~ 11111 (31 in decimal)
 
 What is 10001 + 10001?
-Answer: 34 because 10001 = 17
+Answer: ~~34 because 10001 = 17~~ 100010 (34 in decimal)
 
 What's the largest number you can store with 4 bits, if you want to be able to represent the number 0?
 Answer: 15; 0b0000
@@ -32,10 +32,10 @@ How many bits would you need in order to store the numbers between 0 and 3 inclu
 Answer: 2
 
 How many bits would you need in order to store the numbers between 0 and 1000 inclusive?
-Answer: 10
+Answer: 10 (Actual answer: 10, but you'd have 23 spare values, so you can actually store between 0 and 1023 with 10 bits.)
 
 How can you test if a binary number is a power of two (e.g. 1, 2, 4, 8, 16, ...)?
-Answer: A binary number is a power of two if it has exactly one 1 bit, or equivalently if n & (n - 1) == 0 (for n > 0)
+Answer: A binary number is a power of two if it has exactly one 1 bit, or equivalently if n & (n - 1) == 0 (for n > 0) (Actual answer: Test that it has exactly one 1.)
 
 Convert the decimal number 14 to hex.
 Answer: E
@@ -56,10 +56,10 @@ If reading the byte 0x21 as an ASCII character, what character would it mean?
 Answer: !
 
 If reading the byte 0x21 as a greyscale colour, as described in "Approaches for Representing Colors and Images", what colour would it mean?
-Answer: black
+Answer: ~~black~~ Dark grey
 
 If reading the bytes 0xAA00FF as an RGB colour, as described in "Approaches for Representing Colors and Images", what colour would it mean?
-Answer: Red + (No Green) + (Blue) ≈ A bright purple
+Answer: Red + (No Green) + (Blue) ≈ A bright purple (Actual answer: Purple)
 
 If reading the bytes 0xAA00FF as a sequence of three one-byte decimal numbers, what decimal numbers would they be?
 Answer: 170, 0, 255
