@@ -1,6 +1,7 @@
 {
   "name": "wc",
   "version": "1.0.0",
+  "type": "module",
   "description": "You should already be familiar with the `wc` command line tool.",
   "main": "index.js",
   "scripts": {
