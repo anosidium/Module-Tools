@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import process from "node:process";
 
 program.name("ls");
-program.description("test");
+program.description("simple ls clone");
 program.option("-1", "list one file per line");
 program.option("-a", "show hidden files");
 program.argument("<path>");
