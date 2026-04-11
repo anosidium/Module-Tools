@@ -14,7 +14,7 @@ if (argv.length != 1) {
 }
 
 const path = argv[0];
-const char = program.opts().char;
+const options = program.opts();
 
 try {
   const stat = await fs.stat(path);
@@ -22,8 +22,13 @@ try {
   if (stat.isDirectory()) {
     const files = await fs.readdir(path);
 
-    for (const file of files) {
-      console.log(file);
+    if (options["1"]) {
+      for (const file of files) {
+        console.log(file);
+      }
+    } else {
+      const output = files.join("\t");
+      console.log(output);
     }
   } else {
     console.log(path);
