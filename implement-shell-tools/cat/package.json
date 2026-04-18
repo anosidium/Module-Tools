@@ -1,6 +1,7 @@
 {
   "name": "cat",
   "version": "1.0.0",
+  "type": "module",
   "description": "You should already be familiar with the `cat` command line tool.",
   "main": "index.js",
   "scripts": {
