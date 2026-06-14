@@ -1,5 +1,5 @@
-import cowsay
 import argparse
+import cowsay
 
 parser = argparse.ArgumentParser(prog="cow.py",
                                  description="Print a message using a cowsay animal")
