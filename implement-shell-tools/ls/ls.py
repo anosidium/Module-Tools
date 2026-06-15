@@ -10,6 +10,7 @@ parser.add_argument("-1",
                     help="list one file per line")
 
 parser.add_argument("-a",
+                    dest="show_hidden_files",
                     action="store_true",
                     help="show hidden files")
 
@@ -18,3 +19,15 @@ parser.add_argument("filepath",
                     default=".")
 
 args = parser.parse_args()
+
+entries = os.listdir(args.filepath)
+
+if not args.show_hidden_files:
+    entries = [entry for entry in entries if not entry.startswith(".")]
+
+if args.one_per_line:
+    for entry in entries:
+        print(entry)
+else:
+    joined = "\t".join(entries)
+    print(joined)
