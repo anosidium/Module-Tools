@@ -1,4 +1,5 @@
 import argparse
+import os
 
 parser = argparse.ArgumentParser(prog="wc",
                                  description="simple wc clone")
@@ -21,7 +22,7 @@ parser.add_argument("-c",
                     action="store_true",
                     help="print byte count")
 
-parser.add_argument("path")
+parser.add_argument("paths", nargs="+")
 
 args = parser.parse_args()
 
@@ -30,25 +31,37 @@ if not args.show_lines and not args.show_words and not args.show_bytes:
     args.show_words = True
     args.show_bytes = True
 
-with open(args.path, "rb") as file:
-    content = file.read()
+def format_count(content, path):
+    outputs = []
 
-word_count = str(len(content.split()))
-line_count = str(content.count(b"\n"))
-byte_count = str(len(content))
+    word_count = str(len(content.split()))
+    line_count = str(content.count(b"\n"))
+    byte_count = str(len(content))
+
+    if args.show_lines:
+        outputs.append(line_count)
+
+    if args.show_words:
+        outputs.append(word_count)
+
+    if args.show_bytes:
+        outputs.append(byte_count)
+
+    outputs.append(path)
+
+    return "\t".join(outputs)
 
 outputs = []
 
-if args.show_lines:
-    outputs.append(line_count)
+for path in args.paths:
+    if os.path.isdir(path):
+            print(f"wc: {path}: Is a directory")
+            continue
+        
+    with open(path, "rb") as file:
+        content = file.read()
+        output = format_count(content, path)
+        outputs.append("\t" + output)
 
-if args.show_words:
-    outputs.append(word_count)
-
-if args.show_bytes:
-    outputs.append(byte_count)
-
-outputs.append(args.path)
-
-output = "\t".join(outputs)
-print(output)
+result = "\n".join(outputs)
+print(result)
