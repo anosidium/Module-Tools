@@ -41,8 +41,12 @@ for path in args.paths:
         print(f"cat: {path}: Is a directory")
         continue
 
-    with open(path, "r") as file:
-        line_number = 1
+    try:
+        with open(path, "r") as file:
+            line_number = 1
         
-        for line in file:
-            line_number = process_line(line_number, line)
+            for line in file:
+                line_number = process_line(line_number, line)
+
+    except FileNotFoundError:
+        print(f"cat: {path}: No such file or directory")
