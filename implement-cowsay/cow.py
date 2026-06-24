@@ -3,14 +3,15 @@ import cowsay
 
 animal_names = cowsay.char_names
 
-parser = argparse.ArgumentParser(prog="cow.py",
-                                 description="Print a message using a cowsay animal")
+parser = argparse.ArgumentParser(prog="cowsay",
+                                 description="Make animals say things")
                                  
 parser.add_argument("message",
-                    nargs="+")
+                    nargs="+",
+                    help="The message to say.")
 
-parser.add_argument("-a",
-                    "--animal",
+parser.add_argument("--animal",
+                    "-a",
                     default="cow",
                     choices=animal_names,
                     help="Animal to use for the speech bubble.")
