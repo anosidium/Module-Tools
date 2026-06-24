@@ -26,11 +26,11 @@ def process_line(line_number, line):
             print(line, end="")
             return line_number
         
-        print(f"\t{line_number}  {line}", end="")
+        print(f"{line_number:6}\t{line}", end="")
         return line_number + 1
     
     if args.number_all:
-        print(f"\t{line_number}  {line}", end="")
+        print(f"{line_number:6}\t{line}", end="")
         return line_number + 1
     
     print(line, end="")
