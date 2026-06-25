@@ -20,7 +20,7 @@ parser.add_argument("filepath",
 
 args = parser.parse_args()
 
-entries = os.listdir(args.filepath)
+entries = sorted(os.listdir(args.filepath))
 
 if args.show_hidden_files:
     entries = [".", ".."] + entries
