@@ -22,7 +22,9 @@ args = parser.parse_args()
 
 entries = os.listdir(args.filepath)
 
-if not args.show_hidden_files:
+if args.show_hidden_files:
+    entries = [".", ".."] + entries
+else:
     entries = [entry for entry in entries if not entry.startswith(".")]
 
 if args.one_per_line:
