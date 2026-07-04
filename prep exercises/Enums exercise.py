@@ -44,10 +44,6 @@ laptops = [
     Laptop(id=4, manufacturer="Apple", model="macBook", screen_size_in_inches=13, operating_system=OperatingSystem.MACOS),
 ]
 
-# for person in people:
-#     possible_laptops = find_possible_laptops(laptops, person)
-#     print(f"Possible laptops for {person.name}: {possible_laptops}")
-
 name = input("Please enter your name: ")
 
 def get_age() -> int:
