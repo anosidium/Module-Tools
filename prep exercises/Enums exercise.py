@@ -4,9 +4,9 @@ from typing import List
 import sys
 
 class OperatingSystem(Enum):
-    MACOS = "macOS"
-    ARCH = "Arch Linux"
-    UBUNTU = "Ubuntu"
+    MACOS = "macos"
+    ARCH = "arch linux"
+    UBUNTU = "ubuntu"
 
 @dataclass(frozen=True)
 class Person:
@@ -67,7 +67,7 @@ def get_preferred_operating_system() -> OperatingSystem:
         preferred_operating_system_input = input("Your preferred operating system (macOS, Ubuntu or Arch Linux): ")
 
         try:
-            normalised_value = preferred_operating_system_input.strip()
+            normalised_value = preferred_operating_system_input.strip().lower()
             operating_system = OperatingSystem(normalised_value)
             return operating_system
         except ValueError:
